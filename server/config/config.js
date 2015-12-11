@@ -12,7 +12,7 @@ module.exports = {
   },
   production: {
     port: process.env.PORT,
-    dbConnection: '',
+    dbConnection: 'mongodb://admin:12345@ds029605.mongolab.com:29605/bullsandcowsdev',
     rootPath: rootPath
   }
 };
