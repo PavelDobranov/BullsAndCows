@@ -1,0 +1,17 @@
+{
+  "name": "bulls-and-cows",
+  "version": "0.0.1",
+  "description": "MEAN stack bulls and cows game",
+  "main": "server.js",
+  "keywords": [
+    "bulls",
+    "cows",
+    "game"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "express": "~4.13.3",
+    "body-parser": "~1.14.1",
+    "mongoose": "~4.3.0"
+  }
+}

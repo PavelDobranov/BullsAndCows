@@ -1,0 +1,28 @@
+{
+  "name": "bulls-and-cows",
+  "description": "MEAN stack bulls and cows game",
+  "main": "server.js",
+  "authors": [
+    "Pavel Dobranov <pdobranov@gmail.com>",
+    "Zhenya Racheva"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "bulls",
+    "cows",
+    "game"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.8",
+    "angular-route": "~1.4.8",
+    "bootstrap": "~3.3.6"
+  }
+}
