@@ -19,6 +19,11 @@
         templateUrl: 'app/views/register-user.html',
         controller: 'RegisterUserController',
         controllerAs: 'vm'
+      })
+      .when('/users/login',{
+        templateUrl: 'app/views/login-user.html',
+        controller: 'LoginUserController',
+        controllerAs: 'vm'
       });
   }]);
 }());
