@@ -1,11 +1,11 @@
 'use strict';
 
-var passport = require('passport'),
-  LocalPassport = require('passport-local'),
-  User = require('mongoose').model('User');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var User = require('mongoose').model('User');
 
 module.exports = function() {
-  passport.use(new LocalPassport(function(username, password, done) {
+  passport.use(new LocalStrategy(function(username, password, done) {
     User.findOne({ username: username }, function(err, user) {
       if (err) {
         return done(err);
@@ -15,7 +15,7 @@ module.exports = function() {
         return done(null, false);
       }
 
-      if (!user.isValidPassword(password)) {
+      if (!user.verifyPassword(password)) {
         return done(null, false);
       }
 

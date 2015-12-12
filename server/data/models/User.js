@@ -9,7 +9,7 @@ module.exports.init = function() {
   });
 
   userSchema.method({
-    isValidPassword: function(password) {
+    verifyPassword: function(password) {
       return password === this.password;
     }
   });
