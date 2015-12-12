@@ -13,8 +13,8 @@
 
         $http
           .post('/api/games', game)
-          .then(function(response) {
-            console.log(response);
+          .then(function(res) {
+            console.log(res);
           });
       };
     }]);

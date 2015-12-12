@@ -1,26 +1,16 @@
 'use strict';
 
-var games = require('mongoose').model('Game');
+var controllers = require('../controllers');
 
 module.exports = function(app, config) {
-  app.get('/', function(req, res) {
+  app.post('/login', controllers.auth.login);
+  app.post('/logout', controllers.auth.logout);
+
+  app.post('/api/users', controllers.users.create);
+
+  app.post('/api/games', controllers.auth.authenticate, controllers.games.create);
+
+  app.get('*', function(req, res) {
     res.sendFile(config.rootPath + '/server/views/index.html');
-  });
-
-  app.post('/api/games', function(req, res) {
-    var game = req.body;
-    game.state = 'waiting';
-
-    games.create(game, function(err, dbGame) {
-      if (err) {
-        console.log(err);
-      }
-
-      if (!dbGame) {
-        console.log('?!?!?!?!?');
-      }
-
-      res.json(dbGame);
-    });
   });
 };

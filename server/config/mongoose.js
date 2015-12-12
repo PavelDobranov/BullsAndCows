@@ -1,7 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose');
-var Game = require('../data/models/Game');
+var models = require('../data/models');
 
 module.exports = function(config) {
   mongoose.connect(config.dbConnection);
@@ -15,5 +15,6 @@ module.exports = function(config) {
     console.log('MongoDB up and running...');
   });
 
-  Game.init();
+  models.UserModel.init();
+  models.GameModel.init();
 };
