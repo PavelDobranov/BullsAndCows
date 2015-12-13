@@ -25,7 +25,6 @@
       return deferred.promise;
     }
 
-
     return {
       getFreeGames: getFreeGames
     };

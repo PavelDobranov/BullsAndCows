@@ -2,7 +2,8 @@
   'use strict';
 
   angular.module('BullsAndCows.controllers')
-    .controller('HomeController', 'gamesService', ['$http','gamesService', function ($http, gamesService) {
+    .controller('HomeController', ['$http','gamesService',
+      function HomeController ($http, gamesService) {
       var vm = this;
       console.log('pesho from controller');
       gamesService.getFreeGames()
