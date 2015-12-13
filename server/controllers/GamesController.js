@@ -24,7 +24,7 @@ module.exports = {
   },
   getByState: function(req, res){
     var gameState = req.query.state;
-
+    console.log('pesho');
     games
       .getByState(gameState)
       .then(function(games) {

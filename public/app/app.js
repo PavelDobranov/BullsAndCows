@@ -8,7 +8,9 @@
   angular.module('BullsAndCows').config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'app/views/home.html'
+        templateUrl: 'app/views/home.html',
+        controller: 'HomeController',
+        controllerAs: 'vm'
       })
       .when('/games/create', {
         templateUrl: 'app/views/game-create.html',
