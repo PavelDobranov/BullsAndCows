@@ -7,8 +7,7 @@
 
       vm.createGame = function(number) {
         var game = {
-          firstPlayerNumber: number,
-          firstPlayer: 'Pavel'
+          firstPlayerNumber: number
         };
 
         $http
