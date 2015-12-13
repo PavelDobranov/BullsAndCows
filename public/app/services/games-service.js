@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('BullsAndCows.services')
-    .factory('gamesService',gamesService);
+    .factory('gamesService', gamesService);
 
   gamesService.$inject = ['$http', '$q'];
 
@@ -25,8 +25,27 @@
       return deferred.promise;
     }
 
+    function createGame(number) {
+      var deferred = $q.defer();
+      var game = {
+        firstPlayerNumber: number
+      };
+
+      $http
+        .post('/api/games', game)
+        .then(function (res) {
+          deferred.resolve(res.data);
+        })
+        .catch(function (err) {
+          deferred.reject(err);
+        });
+
+      return deferred.promise;
+    }
+
     return {
-      getFreeGames: getFreeGames
+      getFreeGames: getFreeGames,
+      createGame: createGame
     };
   }
 }());

@@ -1,18 +1,21 @@
 <div class="row">
   <form class="form-horizontal">
-  <fieldset>
-    <legend>Create Game</legend>
-    <div class="form-group">
-      <label for="tb-number" class="col-md-2 control-label">Number</label>
-      <div class="col-md-10">
-        <input ng-model="vm.number" type="text" class="form-control" id="tb-number" placeholder="Number">
+    <fieldset>
+      <legend>Create Game</legend>
+      <div class="form-group">
+        <label for="tb-number" class="col-md-2 control-label">Number</label>
+
+        <div class="col-md-10">
+          <input ng-model="vm.number" type="text" class="form-control" id="tb-number" placeholder="Number">
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="col-md-10 col-md-offset-2">
-        <button ng-click="vm.createGame(vm.number)" class="btn btn-primary">Submit</button>
+      <div class="form-group">
+        <div class="col-md-10 col-md-offset-2">
+          <button ng-click="vm.createGame(vm.number)" ng-disabled="vm.number.length !=4" class="btn btn-primary">
+            Submit
+          </button>
+        </div>
       </div>
-    </div>
-  </fieldset>
-</form>
+    </fieldset>
+  </form>
 </div>

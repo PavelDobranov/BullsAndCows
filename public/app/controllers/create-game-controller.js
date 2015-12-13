@@ -2,22 +2,20 @@
   'use strict';
 
   angular.module('BullsAndCows.controllers')
-    .controller('CreateGameController', ['$http', CreateGameController]);
+    .controller('CreateGameController', ['gamesService', CreateGameController]);
 
-  CreateGameController.$inject = ['$http'];
+  CreateGameController.$inject = ['gamesService'];
 
-  function CreateGameController($http) {
+  function CreateGameController(gamesService) {
     var vm = this;
 
     vm.createGame = function (number) {
-      var game = {
-        firstPlayerNumber: number
-      };
-
-      $http
-        .post('/api/games', game)
+      gamesService.createGame(number)
         .then(function (res) {
           console.log(res);
+        })
+        .catch(function (err) {
+          console.log(err);
         });
     };
   }
