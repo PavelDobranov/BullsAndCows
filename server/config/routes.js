@@ -9,6 +9,7 @@ module.exports = function(app, config) {
   app.post('/api/users', controllers.users.create);
 
   app.post('/api/games', controllers.auth.authenticate, controllers.games.create);
+  app.get('/api/games', controllers.games.getByState);
 
   app.get('*', function(req, res) {
     res.sendFile(config.rootPath + '/server/views/index.html');
