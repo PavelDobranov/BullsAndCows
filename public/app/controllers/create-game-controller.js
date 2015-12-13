@@ -1,20 +1,24 @@
-(function() {
+(function () {
   'use strict';
 
   angular.module('BullsAndCows.controllers')
-    .controller('CreateGameController', ['$http', function($http) {
-      var vm = this;
+    .controller('CreateGameController', ['$http', CreateGameController]);
 
-      vm.createGame = function(number) {
-        var game = {
-          firstPlayerNumber: number
-        };
+  CreateGameController.$inject = ['$http'];
 
-        $http
-          .post('/api/games', game)
-          .then(function(res) {
-            console.log(res);
-          });
+  function CreateGameController($http) {
+    var vm = this;
+
+    vm.createGame = function (number) {
+      var game = {
+        firstPlayerNumber: number
       };
-    }]);
+
+      $http
+        .post('/api/games', game)
+        .then(function (res) {
+          console.log(res);
+        });
+    };
+  }
 }());
