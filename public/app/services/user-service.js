@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular.module('BullsAndCows.services')
@@ -14,11 +14,28 @@
 
       $http
         .post(url, user)
-        .then(function(res) {
+        .then(function (res) {
           console.log(res);
           deferred.resolve(res);
         })
-        .catch(function(err) {
+        .catch(function (err) {
+          deferred.reject(err);
+        });
+
+      return deferred.promise;
+    }
+
+    function login(user, registerForm) {
+      var url = '/login';
+      var deferred = $q.defer();
+
+      $http
+        .post(url, user)
+        .then(function (res) {
+          console.log(res);
+          deferred.resolve(res);
+        })
+        .catch(function (err) {
           deferred.reject(err);
         });
 
@@ -26,7 +43,8 @@
     }
 
     return {
-      register: create
+      register: create,
+      login: login
     };
   }
 }());

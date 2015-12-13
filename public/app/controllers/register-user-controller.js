@@ -19,7 +19,7 @@
           userService.register(user)
             .then(function (res) {
               console.log(res);
-              //$location.path('/users/login')
+              $location.path('/users/login')
             })
             .catch(function (err) {
               console.log(err);
@@ -28,7 +28,6 @@
       } else {
         console.log('INVALID MODEL!')
       }
-
     };
 
     vm.cancelRegister = function () {

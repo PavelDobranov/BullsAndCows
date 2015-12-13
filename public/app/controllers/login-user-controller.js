@@ -2,29 +2,23 @@
   'use strict';
 
   angular.module('BullsAndCows.controllers')
-    .controller('LoginUserController', ['$location', '$http','$q', 'userService', LoginUserController]);
+    .controller('LoginUserController', ['$location', 'userService', LoginUserController]);
 
-  LoginUserController.$inject = ['$location', '$http','$q', 'userService'];
+  LoginUserController.$inject = ['$location', 'userService'];
 
-  function LoginUserController($location, $http, $q, userService) {
+  function LoginUserController($location, userService) {
     var vm = this;
-
     vm.login = function (user, registerForm) {
-      var url = '/login';
-      var deferred = $q.defer();
 
-      $http
-        .post(url, user)
-        .then(function(res) {
+      userService.login(user)
+        .then(function (res) {
           console.log(res);
-          deferred.resolve(res);
+          $location.path('/')
         })
-        .catch(function(err) {
-          deferred.reject(err);
+        .catch(function (err) {
+          console.log(err);
         });
-
-      return deferred.promise;
-    }
+    };
   }
 }());
 
